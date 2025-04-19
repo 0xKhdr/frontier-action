@@ -7,15 +7,15 @@
 	"require": {},
 	"autoload": {
 		"psr-4": {
-			"Edge\\Actions\\": "src/",
-			"Edge\\Actions\\Tests\\": "tests/"
+			"Frontier\\Actions\\": "src/",
+			"Frontier\\Actions\\Tests\\": "tests/"
 		}
 	},
 	"minimum-stability": "stable",
 	"extra": {
 		"laravel": {
 			"providers": [
-                "Edge\\Actions\\Providers\\ServiceProvider"
+                "Frontier\\Actions\\Providers\\ServiceProvider"
 			]
 		}
 	}

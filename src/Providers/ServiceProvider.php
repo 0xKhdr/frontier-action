@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\Actions\Providers;
+namespace Frontier\Actions\Providers;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 

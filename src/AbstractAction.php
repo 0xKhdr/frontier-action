@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\Actions;
+namespace Frontier\Actions;
 
 use Exception;
 use Throwable;

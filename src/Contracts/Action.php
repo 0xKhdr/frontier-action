@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\Actions\Contracts;
+namespace Frontier\Actions\Contracts;
 
 interface Action
 {
