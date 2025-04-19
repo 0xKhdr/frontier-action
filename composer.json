@@ -1,6 +1,6 @@
 {
 	"name": "frontier/actions",
-	"description": "Laravel Edge Actions Package",
+	"description": "Laravel Frontier Actions Package",
 	"type": "library",
 	"version": "1.0",
 	"license": "MIT",
