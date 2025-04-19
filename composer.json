@@ -1,0 +1,22 @@
+{
+	"name": "edge/actions",
+	"description": "Laravel Edge Actions Package",
+	"type": "library",
+	"version": "1.0",
+	"license": "MIT",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Edge\\Actions\\": "src/",
+			"Edge\\Actions\\Tests\\": "tests/"
+		}
+	},
+	"minimum-stability": "stable",
+	"extra": {
+		"laravel": {
+			"providers": [
+                "Edge\\Actions\\Providers\\ServiceProvider"
+			]
+		}
+	}
+}
