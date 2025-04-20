@@ -1,4 +1,5 @@
 !.gitignore
+.idea
 .vscode
 .env
 docker-compose.yml
