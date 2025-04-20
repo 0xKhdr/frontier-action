@@ -1,5 +1,5 @@
 {
-	"name": "frontier/actions",
+	"name": "frontier/action",
 	"description": "Laravel Frontier Actions Package",
 	"type": "library",
 	"version": "1.0",
