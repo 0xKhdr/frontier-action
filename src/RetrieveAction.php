@@ -1,8 +1,7 @@
 <?php
 
-namespace Frontier\Actions\Abstracts;
+namespace Frontier\Actions;
 
-use Frontier\Actions\EloquentAction;
 use Illuminate\Support\Collection;
 
 class RetrieveAction extends EloquentAction

@@ -1,0 +1,6 @@
+!.gitignore
+.vscode
+.env
+docker-compose.yml
+compose
+vendor

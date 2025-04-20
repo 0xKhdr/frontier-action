@@ -1,8 +1,6 @@
 <?php
 
-namespace Frontier\Actions\Abstracts;
-
-use Frontier\Actions\EloquentAction;
+namespace Frontier\Actions;
 
 class UpdateAction extends EloquentAction
 {
