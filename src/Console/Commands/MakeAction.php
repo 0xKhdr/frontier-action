@@ -2,18 +2,32 @@
 
 namespace Frontier\Actions\Console\Commands;
 
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Pluralizer;
 use Illuminate\Console\Command;
 
-class MakeAction extends Command
+class MakeAction extends AbstractMake
 {
     protected $signature = 'frontier:action {name}';
 
     protected $description = 'Create a new action class';
 
-    public function handle(): int
+    public function getSourceFilePath(): string
     {
-        $name = $this->argument('name');
+        return App::path('Actions/'.$this->getClassName()).'.php';
+    }
 
-        return 0;
+    public function getStubPath(): string
+    {
+        return __DIR__.'/../../resources/stubs/action.stub';
+    }
+
+    public function getStubVariables(): array
+    {
+        return [
+            'NAMESPACE' => 'App\\Actions',
+            'CLASS_NAME' => $this->getClassName(),
+        ];
     }
 }
