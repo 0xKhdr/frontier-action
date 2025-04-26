@@ -3,6 +3,7 @@
 namespace Frontier\Actions;
 
 use Exception;
+use Illuminate\Support\Facades\App;
 use Throwable;
 
 abstract class AbstractAction implements Contracts\Action
@@ -12,7 +13,7 @@ abstract class AbstractAction implements Contracts\Action
      */
     public static function exec(...$arguments): mixed
     {
-        return app(static::class)->execute(...$arguments);
+        return App::make(static::class)->execute(...$arguments);
     }
 
     /**

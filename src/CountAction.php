@@ -6,6 +6,6 @@ class CountAction extends EloquentAction
 {
     public function handle(array $conditions): int
     {
-        return $this->model->where($conditions)->count();
+        return $this->model->query()->where($conditions)->count();
     }
 }

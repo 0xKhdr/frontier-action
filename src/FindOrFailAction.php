@@ -8,6 +8,6 @@ class FindOrFailAction extends EloquentAction
 {
     public function handle(array $conditions): Model
     {
-        return $this->model->where($conditions)->firstOrFail();
+        return $this->model->query()->where($conditions)->firstOrFail();
     }
 }

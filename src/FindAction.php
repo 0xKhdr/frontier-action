@@ -8,6 +8,6 @@ class FindAction extends EloquentAction
 {
     public function handle(array $conditions): ?Model
     {
-        return $this->model->where($conditions)->first();
+        return $this->model->query()->where($conditions)->first();
     }
 }

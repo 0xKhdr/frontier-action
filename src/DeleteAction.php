@@ -6,6 +6,6 @@ class DeleteAction extends EloquentAction
 {
     public function handle(array $conditions): int
     {
-        return $this->model->where($conditions)->delete();
+        return $this->model->query()->where($conditions)->delete();
     }
 }

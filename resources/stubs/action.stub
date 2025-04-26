@@ -1,0 +1,12 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Frontier\Actions\EloquentAction;
+
+class $CLASS_NAME$ extends EloquentAction
+{
+    public function handle()
+    {
+    }
+}
