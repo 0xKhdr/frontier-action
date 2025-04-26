@@ -17,7 +17,7 @@ class MakeAction extends AbstractMake
 
     public function getStubPath(): string
     {
-        return __DIR__.'/../../resources/stubs/action.stub';
+        return __DIR__.'/../../../resources/stubs/action.stub';
     }
 
     public function getStubVariables(): array
