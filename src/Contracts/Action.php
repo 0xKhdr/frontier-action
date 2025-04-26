@@ -2,6 +2,4 @@
 
 namespace Frontier\Actions\Contracts;
 
-interface Action
-{
-}
+interface Action {}
