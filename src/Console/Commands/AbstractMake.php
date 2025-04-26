@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Pluralizer;
 
+use function Laravel\Prompts\info;
+
 abstract class AbstractMake extends Command
 {
     public function handle(): int
@@ -25,10 +27,9 @@ abstract class AbstractMake extends Command
 
         if (! File::exists($path)) {
             File::put($path, $contents);
-
-            $this->components->info(sprintf('%s created', $path));
+            info(sprintf('%s created', $path));
         } else {
-            $this->components->info(sprintf('%s already exists', $path));
+            info(sprintf('%s already exists', $path));
         }
     }
 
