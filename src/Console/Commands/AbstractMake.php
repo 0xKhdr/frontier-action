@@ -2,15 +2,16 @@
 
 namespace Frontier\Actions\Console\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Pluralizer;
-use Illuminate\Console\Command;
 
 abstract class AbstractMake extends Command
 {
     public function handle(): int
     {
         $this->make();
+
         return 0;
     }
 

@@ -3,9 +3,6 @@
 namespace Frontier\Actions\Console\Commands;
 
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Pluralizer;
-use Illuminate\Console\Command;
 
 class MakeAction extends AbstractMake
 {
