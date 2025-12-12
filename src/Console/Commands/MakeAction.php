@@ -7,7 +7,7 @@ namespace Frontier\Actions\Console\Commands;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use InterNACHI\Modular\Support\Facades\Modules;
-use InterNACHI\Modular\Support\ModuleRegistry;
+
 use function Laravel\Prompts\select;
 
 /**
@@ -36,10 +36,7 @@ class MakeAction extends GeneratorCommand
         $module = $this->option('module');
 
         // Check if --module was used but internachi/modular is not installed
-        if (
-            ($module !== null || $this->moduleOptionWasPassedWithoutValue()) &&
-            ! $this->isModularInstalled()
-        ) {
+        if (($module !== null || $this->moduleOptionWasPassedWithoutValue()) && ! $this->isModularInstalled()) {
             $this->components->error('The --module option requires the internachi/modular package. Install it with: composer require internachi/modular');
 
             return;
@@ -70,7 +67,7 @@ class MakeAction extends GeneratorCommand
      */
     protected function isModularInstalled(): bool
     {
-        return class_exists(ModuleRegistry::class);
+        return class_exists(\InterNACHI\Modular\Support\ModuleRegistry::class);
     }
 
     /**
