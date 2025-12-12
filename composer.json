@@ -1,30 +1,45 @@
 {
-	"name": "frontier/action",
-	"description": "Laravel Frontier Actions Package",
-	"type": "library",
-	"version": "1.0",
-	"license": "MIT",
-	"require": {
-		"php": ">=8.2",
-		"illuminate/support": "^10.0|^11.0|^12.0",
-		"illuminate/console": "^10.0|^11.0|^12.0",
-		"illuminate/database": "^10.0|^11.0|^12.0"
-	},
-	"require-dev": {
-		"laravel/pint": "^v1.22.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"Frontier\\Actions\\": "src/",
-			"Frontier\\Actions\\Tests\\": "tests/"
-		}
-	},
-	"minimum-stability": "dev",
-	"extra": {
-		"laravel": {
-			"providers": [
-                "Frontier\\Actions\\Providers\\ServiceProvider"
-			]
-		}
-	}
+  "name": "frontier/action",
+  "description": "Laravel Frontier Actions Package",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "actions",
+    "action-class",
+    "frontier"
+  ],
+  "authors": [
+    {
+      "name": "Mohamed Khedr",
+      "email": "0xkhdr@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "illuminate/support": "^10.0|^11.0|^12.0",
+    "illuminate/console": "^10.0|^11.0|^12.0",
+    "illuminate/database": "^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^v1.22.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Frontier\\Actions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Frontier\\Actions\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Frontier\\Actions\\Providers\\ServiceProvider"
+      ]
+    }
+  }
 }
