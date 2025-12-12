@@ -56,7 +56,7 @@ abstract class GeneratorCommand extends Command
 
     protected function getClassName(): string
     {
-        return ucwords($this->argument('name', ''));
+        return ucwords($this->argument('name'));
     }
 
     protected function getSingularClassName(): string

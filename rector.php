@@ -18,9 +18,6 @@ return RectorConfig::configure()
         SetList::EARLY_RETURN,
         SetList::TYPE_DECLARATION,
     ])
-    ->withRules([
-        AddVoidReturnTypeWhereNoReturnRector::class,
-    ])
     ->withSkip([
         // Skip specific rules if needed
     ]);

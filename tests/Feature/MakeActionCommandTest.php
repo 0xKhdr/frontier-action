@@ -4,35 +4,35 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Artisan;
 
-describe('MakeAction Command', function () {
-    afterEach(function () {
+describe('MakeAction Command', function (): void {
+    afterEach(function (): void {
         $testPath = app_path('Actions/TestGeneratedAction.php');
         if (file_exists($testPath)) {
             unlink($testPath);
         }
     });
 
-    it('is registered', function () {
+    it('is registered', function (): void {
         $commands = Artisan::all();
 
         expect($commands)->toHaveKey('frontier:action');
     });
 
-    it('has module option', function () {
+    it('has module option', function (): void {
         $command = Artisan::all()['frontier:action'];
         $definition = $command->getDefinition();
 
         expect($definition->hasOption('module'))->toBeTrue();
     });
 
-    it('creates action file', function () {
+    it('creates action file', function (): void {
         $this->artisan('frontier:action', ['name' => 'TestGeneratedAction'])
             ->assertSuccessful();
 
         expect(file_exists(app_path('Actions/TestGeneratedAction.php')))->toBeTrue();
     });
 
-    it('generates correct namespace', function () {
+    it('generates correct namespace', function (): void {
         $this->artisan('frontier:action', ['name' => 'TestGeneratedAction'])
             ->assertSuccessful();
 

@@ -26,26 +26,26 @@ class MultiArgAction extends BaseAction
     }
 }
 
-describe('BaseAction', function () {
-    it('can be executed with exec method', function () {
+describe('BaseAction', function (): void {
+    it('can be executed with exec method', function (): void {
         $result = TestAction::exec('test-value');
 
         expect($result)->toBe('handled: test-value');
     });
 
-    it('can be executed with execute method', function () {
+    it('can be executed with execute method', function (): void {
         $action = new TestAction;
         $result = $action->execute('test-value');
 
         expect($result)->toBe('handled: test-value');
     });
 
-    it('throws exception without handle method', function () {
+    it('throws exception without handle method', function (): void {
         $action = new ActionWithoutHandle;
         $action->execute();
     })->throws(BadMethodCallException::class, 'must implement the handle() method');
 
-    it('receives multiple arguments', function () {
+    it('receives multiple arguments', function (): void {
         $result = MultiArgAction::exec('arg1', 'arg2', 'arg3');
 
         expect($result)->toBe('arg1-arg2-arg3');

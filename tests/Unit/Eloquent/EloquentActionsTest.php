@@ -27,8 +27,8 @@ class TestUser extends Model
 }
 
 // Setup and teardown
-beforeEach(function () {
-    Schema::create('test_users', function (Blueprint $table) {
+beforeEach(function (): void {
+    Schema::create('test_users', function (Blueprint $table): void {
         $table->id();
         $table->string('name');
         $table->string('email')->unique();
@@ -37,12 +37,12 @@ beforeEach(function () {
     });
 });
 
-afterEach(function () {
+afterEach(function (): void {
     Schema::dropIfExists('test_users');
 });
 
-describe('CreateAction', function () {
-    it('creates a record', function () {
+describe('CreateAction', function (): void {
+    it('creates a record', function (): void {
         $action = new class extends CreateAction
         {
             public function __construct()
@@ -60,8 +60,8 @@ describe('CreateAction', function () {
     });
 });
 
-describe('FindAction', function () {
-    it('finds existing record', function () {
+describe('FindAction', function (): void {
+    it('finds existing record', function (): void {
         TestUser::create(['name' => 'Jane Doe', 'email' => 'jane@example.com']);
 
         $action = new class extends FindAction
@@ -78,7 +78,7 @@ describe('FindAction', function () {
             ->and($result->name)->toBe('Jane Doe');
     });
 
-    it('returns null when not found', function () {
+    it('returns null when not found', function (): void {
         $action = new class extends FindAction
         {
             public function __construct()
@@ -93,8 +93,8 @@ describe('FindAction', function () {
     });
 });
 
-describe('FindOrFailAction', function () {
-    it('finds existing record', function () {
+describe('FindOrFailAction', function (): void {
+    it('finds existing record', function (): void {
         TestUser::create(['name' => 'Bob Smith', 'email' => 'bob@example.com']);
 
         $action = new class extends FindOrFailAction
@@ -111,7 +111,7 @@ describe('FindOrFailAction', function () {
             ->and($result->name)->toBe('Bob Smith');
     });
 
-    it('throws exception when not found', function () {
+    it('throws exception when not found', function (): void {
         $action = new class extends FindOrFailAction
         {
             public function __construct()
@@ -124,8 +124,8 @@ describe('FindOrFailAction', function () {
     })->throws(ModelNotFoundException::class);
 });
 
-describe('UpdateAction', function () {
-    it('updates existing records', function () {
+describe('UpdateAction', function (): void {
+    it('updates existing records', function (): void {
         TestUser::create(['name' => 'Old Name', 'email' => 'update@example.com']);
 
         $action = new class extends UpdateAction
@@ -142,7 +142,7 @@ describe('UpdateAction', function () {
         $this->assertDatabaseHas('test_users', ['name' => 'New Name', 'email' => 'update@example.com']);
     });
 
-    it('returns zero when no match', function () {
+    it('returns zero when no match', function (): void {
         $action = new class extends UpdateAction
         {
             public function __construct()
@@ -157,8 +157,8 @@ describe('UpdateAction', function () {
     });
 });
 
-describe('DeleteAction', function () {
-    it('deletes records', function () {
+describe('DeleteAction', function (): void {
+    it('deletes records', function (): void {
         TestUser::create(['name' => 'To Delete', 'email' => 'delete@example.com']);
 
         $action = new class extends DeleteAction
@@ -176,8 +176,8 @@ describe('DeleteAction', function () {
     });
 });
 
-describe('CountAction', function () {
-    it('counts records with conditions', function () {
+describe('CountAction', function (): void {
+    it('counts records with conditions', function (): void {
         TestUser::create(['name' => 'User 1', 'email' => 'user1@example.com', 'is_active' => true]);
         TestUser::create(['name' => 'User 2', 'email' => 'user2@example.com', 'is_active' => true]);
         TestUser::create(['name' => 'User 3', 'email' => 'user3@example.com', 'is_active' => false]);
@@ -195,8 +195,8 @@ describe('CountAction', function () {
     });
 });
 
-describe('ExistsAction', function () {
-    it('returns true when exists', function () {
+describe('ExistsAction', function (): void {
+    it('returns true when exists', function (): void {
         TestUser::create(['name' => 'Existing', 'email' => 'exists@example.com']);
 
         $action = new class extends ExistsAction
@@ -210,7 +210,7 @@ describe('ExistsAction', function () {
         expect($action->execute(['email' => 'exists@example.com']))->toBeTrue();
     });
 
-    it('returns false when not exists', function () {
+    it('returns false when not exists', function (): void {
         $action = new class extends ExistsAction
         {
             public function __construct()
@@ -223,8 +223,8 @@ describe('ExistsAction', function () {
     });
 });
 
-describe('RetrieveAction', function () {
-    it('returns all records', function () {
+describe('RetrieveAction', function (): void {
+    it('returns all records', function (): void {
         TestUser::create(['name' => 'User 1', 'email' => 'user1@example.com']);
         TestUser::create(['name' => 'User 2', 'email' => 'user2@example.com']);
 
@@ -241,7 +241,7 @@ describe('RetrieveAction', function () {
         expect($result)->toHaveCount(2);
     });
 
-    it('returns paginated results', function () {
+    it('returns paginated results', function (): void {
         for ($i = 1; $i <= 15; $i++) {
             TestUser::create(['name' => "User {$i}", 'email' => "user{$i}@example.com"]);
         }
@@ -261,8 +261,8 @@ describe('RetrieveAction', function () {
     });
 });
 
-describe('UpdateOrCreateAction', function () {
-    it('creates new record', function () {
+describe('UpdateOrCreateAction', function (): void {
+    it('creates new record', function (): void {
         $action = new class extends UpdateOrCreateAction
         {
             public function __construct()
@@ -279,7 +279,7 @@ describe('UpdateOrCreateAction', function () {
         $this->assertDatabaseHas('test_users', ['email' => 'new@example.com']);
     });
 
-    it('updates existing record', function () {
+    it('updates existing record', function (): void {
         TestUser::create(['name' => 'Old Name', 'email' => 'existing@example.com']);
 
         $action = new class extends UpdateOrCreateAction

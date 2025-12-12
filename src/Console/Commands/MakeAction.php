@@ -46,7 +46,7 @@ class MakeAction extends GeneratorCommand
         if ($module === null && $this->moduleOptionWasPassedWithoutValue()) {
             $modules = $this->getAvailableModules();
 
-            if (empty($modules)) {
+            if ($modules === []) {
                 $this->components->warn('No modules found in '.config('app-modules.modules_directory', 'app-modules'));
 
                 return;
@@ -76,7 +76,7 @@ class MakeAction extends GeneratorCommand
     protected function moduleOptionWasPassedWithoutValue(): bool
     {
         foreach ($_SERVER['argv'] ?? [] as $arg) {
-            if ($arg === '--module' || str_starts_with($arg, '--module=')) {
+            if ($arg === '--module' || str_starts_with((string) $arg, '--module=')) {
                 return $arg === '--module';
             }
         }
@@ -105,7 +105,7 @@ class MakeAction extends GeneratorCommand
             }
 
             return collect(scandir($directory))
-                ->filter(fn ($dir) => $dir !== '.' && $dir !== '..' && is_dir($directory.'/'.$dir))
+                ->filter(fn ($dir): bool => $dir !== '.' && $dir !== '..' && is_dir($directory.'/'.$dir))
                 ->sort()
                 ->values()
                 ->toArray();

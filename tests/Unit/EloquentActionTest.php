@@ -28,14 +28,14 @@ class TestModel extends Model
     protected $table = 'test_models';
 }
 
-describe('EloquentAction', function () {
-    it('extends BaseAction', function () {
+describe('EloquentAction', function (): void {
+    it('extends BaseAction', function (): void {
         $action = new ConcreteEloquentAction(new TestModel);
 
         expect($action)->toBeInstanceOf(EloquentAction::class);
     });
 
-    it('has model property', function () {
+    it('has model property', function (): void {
         $model = new TestModel;
         $action = new ConcreteEloquentAction($model);
 
