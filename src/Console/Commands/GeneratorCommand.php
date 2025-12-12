@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Frontier\Actions\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -8,7 +10,10 @@ use Illuminate\Support\Pluralizer;
 
 use function Laravel\Prompts\info;
 
-abstract class AbstractMake extends Command
+/**
+ * Base generator command for scaffolding action classes.
+ */
+abstract class GeneratorCommand extends Command
 {
     public function handle(): int
     {
@@ -38,7 +43,7 @@ abstract class AbstractMake extends Command
         return $this->getStubContents($this->getStubPath(), $this->getStubVariables());
     }
 
-    protected function getStubContents($stub, $stubVariables = []): array|false|string
+    protected function getStubContents(string $stub, array $stubVariables = []): array|false|string
     {
         $contents = file_get_contents($stub);
 
@@ -59,7 +64,7 @@ abstract class AbstractMake extends Command
         return Pluralizer::singular($this->getClassName());
     }
 
-    protected function makeDirectory($path)
+    protected function makeDirectory(string $path): string
     {
         if (! File::isDirectory($path)) {
             File::makeDirectory($path, 0777, true, true);
