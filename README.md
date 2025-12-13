@@ -3,7 +3,6 @@
   <p align="center">
     <strong>Elegant, Reusable Action Classes for Laravel</strong>
   </p>
-</p>
 
 <p align="center">
   <a href="#installation">Installation</a> •
@@ -221,12 +220,27 @@ composer rector        # Apply refactorings
 
 ---
 
-## License
+## 🤝 Contributing
 
-MIT License. See [LICENSE](LICENSE) for details.
+1. Follow PSR-12 coding standards
+2. Use Laravel Pint for code styling
+3. Write tests using Pest
+4. Add strict types to all PHP files
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## 👤 Author
+
+**Mohamed Khedr** — [0xkhdr@gmail.com](mailto:0xkhdr@gmail.com)
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/0xKhdr">Mohamed Khedr</a>
+  Made with ❤️ for the Laravel community
 </p>
